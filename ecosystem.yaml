@@ -1,8 +1,30 @@
 schema_version: '1.0'
 repo: social-automation
 organ: VII
-display_name: 'POSSE distribution backend: Mastodon, Discord, Bluesky, Ghost adapters
-  with live/mock modes, JWT auth, delivery log, RSS poller, 75 tests'
+display_name: "POSSE distribution backend — Mastodon, Discord, Bluesky, Ghost adapters with delivery log"
+
 delivery:
-- platform: web_app
+- platform: python_library
+  status: live
+  priority: critical
+  notes: "4 platform adapters, live/mock modes, JWT auth, RSS poller, 75 tests"
+  next_action: "Add new platform adapters as distribution expands"
+- platform: api
+  status: live
+  priority: high
+  notes: "REST API for triggering POSSE distribution"
+  next_action: "Add webhook endpoints for automated distribution triggers"
+
+marketing:
+- platform: posse_distribution
+  status: live
+  priority: critical
+  notes: "Cross-platform content distribution via POSSE protocol"
+  next_action: "Expand to additional platforms (LinkedIn, Threads)"
+
+content:
+- platform: docs_site
   status: not_started
+  priority: medium
+  notes: "Adapter configuration, POSSE protocol, delivery log schema"
+  next_action: "Document adapter setup for each platform"

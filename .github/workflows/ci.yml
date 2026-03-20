@@ -15,5 +15,9 @@ jobs:
       - name: Install kerygma-profiles from GitHub
         run: pip install "git+https://${{ secrets.GITHUB_TOKEN }}@github.com/organvm-vii-kerygma/kerygma-profiles.git"
       - run: pip install -e ".[dev]"
+      - name: Type check with pyright
+        run: |
+          pip install pyright
+          pyright kerygma_social/
       - run: python -m pytest tests/ -v
       - run: python -m ruff check kerygma_social/
